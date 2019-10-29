@@ -4,44 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link type="text/css" rel="stylesheet" href="stylesheet.css">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div id="header">
-
+    <div class = "round">
+        <h2> Round </h2>
     </div>
-    <div id="navbar">
-         
+     <div class = "score_panel">
+        <ul>
+             <li>WIN</li>
+             <li>TIES</li>
+             <li>WIN</li>
+        </ul>
     </div>
-    <div class="sideright">
-            <h2>Lecture Dates</h2>
-            <p>11/07 - Lecture on Caesar</p>
-            <p>11/07 - Lecture on Caesar</p>
-            <p>11/07 - Lecture on Caesar</p>
-            <p>11/07 - Lecture on Caesar</p>
-            <p>11/07 - Lecture on Caesar</p>
-    </div>
-    <div class="main">
-        <h1>HANNIBAL - THE BATTLE OF CANNAE </h1>
-        <p>The Battle of Cannae was a major battle of the Second Punic War that took place on 2 August 216
-            BC in Apulia, in southeast Italy. The army of Carthage, under Hannibal, surrounded and decisively
-            defeated a larger army of the Roman Republic under the consuls Lucius Aemilius Paullus and Gaius
-            Terentius Varro. It is regarded both as one of the greatest tactical feats in military history and 
-            as one of the worst defeats in Roman history.</p>
-         <h1>STRATEGIC BACKGROUND </h1>
-         <p>Shortly after the start of the Second Punic War, Hannibal crossed into Italy by traversing 
-             the Pyrenees and the Alps during the summer and early autumn of 218 BC.He quickly won
-              major victories over the Romans at Trebia and at Lake Trasimene.After these losses, 
-              the Romans appointed Quintus Fabius Maximus Verrucosus as dictator to deal with the threat.
-              Fabius used attrition warfare against Hannibal, cutting off his supply lines and avoiding 
-              pitched battles. These tactics proved unpopular with the Romans who, as they recovered from 
-              the shock of Hannibal's victories, began to question the wisdom of the Fabian strategy, 
-              which had given the Carthaginian army a chance to regroup.The majority of Romans were 
-              eager to see a quick conclusion to the war. It was feared that, if Hannibal continued 
-              plundering Italy unopposed, Rome's allies might defect to the Carthaginian side for 
-              self-preservation.</p>
-
+    <div class = "row">
+        <div class = "column">
+            <h1>Player 1 </h1>
+            <div class = "group_button">
+                <input type="button" class ="button rock" value="Rock"/>
+                <input type="button" class ="button paper" value="Paper"/>
+                <input type="button" class ="button scissors" value="Scissors"/>
+            </div>
+        </div>
+        <div class = "column">
+            <h2 id = "results_section">Results</h2>
+        </div>
+        <div class = "column">
+            <h1>AI </h1>
+            <input type="button" class ="button" id ="ai_choice_btn" value="Random choice"/>
+        </div>
     </div>
 </body>
+<script type = "text/javascript" src="script.js"></script>
 </html>
