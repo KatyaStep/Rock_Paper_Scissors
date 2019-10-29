@@ -3,35 +3,22 @@ var paper = document.querySelector(".paper");
 var scissors = document.querySelector(".scissors");
 var ai = document.getElementById("ai_choice_btn");
 var choice;
+var aiChoice;
 
 
 scissors.addEventListener("click", function(){
-    //var choice = insertResult(scissors);
-    //console.log(choice.value);
     if (document.querySelector(".results_paragraph") === null) {
         choice = insertResult(scissors);
-           /* var newParagraph = document.createElement("P");
-            newParagraph.setAttribute("class", "results_paragraph");
-            var element = document.getElementById("results_section");
-            newParagraph.innerText = "Player: " + scissors.value;
-            element.appendChild(newParagraph);*/
-            //console.log(choice);
-            //console.log("Scissors: We are in the first if")
-            
+        aiChoice = randomChoiceAI();
     }
     else if ((document.querySelector(".results_paragraph").textContent === "Player: Rock")|| (document.querySelector(".results_paragraph").textContent === "Player: Paper" )) {
         document.querySelector(".results_paragraph").remove();
         choice = insertResult(scissors);
-        /*var newParagraph = document.createElement("P");
-        newParagraph.setAttribute("class", "results_paragraph");
-        var element = document.getElementById("results_section");
-        newParagraph.innerText = "Player: "+ scissors.value;
-        element.appendChild(newParagraph);*/
-
-        //console.log("Scissors: We are in the second if")
+        aiChoice = randomChoiceAI();
     }
     else {
         console.log("Already choisen");
+        aiChoice = randomChoiceAI();
     }
 })
 
@@ -39,25 +26,16 @@ rock.addEventListener("click", function(){
 
     if (document.querySelector(".results_paragraph") === null) {
         choice = insertResult(rock);
-        /*var newParagraph = document.createElement("P");
-        newParagraph.setAttribute("class", "results_paragraph");
-        var element = document.getElementById("results_section");
-        newParagraph.innerText = "Player: " + rock.value;
-        element.appendChild(newParagraph);*/
+        aiChoice = randomChoiceAI();
     }
     else if ((document.querySelector(".results_paragraph").textContent === "Player: Scissors")|| (document.querySelector(".results_paragraph").textContent === "Player: Paper" )) {
         document.querySelector(".results_paragraph").remove();
         choice = insertResult(rock);
-        //console.log("Deleted");
-        //console.log("Rock: We are in the second if")
-        /*var newParagraph = document.createElement("P");
-        newParagraph.setAttribute("class", "results_paragraph");
-        var element = document.getElementById("results_section");
-        newParagraph.innerText = "Player: " + rock.value;
-        element.appendChild(newParagraph);*/
+        aiChoice = randomChoiceAI();
     }
     else {
         console.log("Already choisen");
+        aiChoice = randomChoiceAI();
     }
 })
 
@@ -65,50 +43,68 @@ paper.addEventListener("click", function(){
 
     if (document.querySelector(".results_paragraph") === null) {
         choice = insertResult(paper);
-       /* var newParagraph = document.createElement("P");
-        newParagraph.setAttribute("class", "results_paragraph");
-        var element = document.getElementById("results_section");
-        newParagraph.innerText = "Player: " + paper.value;
-        element.appendChild(newParagraph);*/
+        aiChoice = randomChoiceAI();
     }
     else if ((document.querySelector(".results_paragraph").textContent === "Player: Rock")|| (document.querySelector(".results_paragraph").textContent === "Player: Scissors" )) {
         document.querySelector(".results_paragraph").remove();
         choice = insertResult(paper);
-       // console.log("Paper: We are in the second if")
-        //console.log("Deleted");
-        /*var newParagraph = document.createElement("P");
-        newParagraph.setAttribute("class", "results_paragraph");
-        var element = document.getElementById("results_section");
-        newParagraph.innerText = "Player: " + paper.value;
-        element.appendChild(newParagraph);*/
+        aiChoice = randomChoiceAI();
     }
     else {
         console.log("Already choisen");
+        aiChoice = randomChoiceAI();
     }
 })
 
 
 
-// Random choice for AI 
+// AI random choice
 
-ai.addEventListener ("click", function(){
-    var choice = Math.floor((Math.random() * 3) + 1);
-    console.log(choice);
+//ai.addEventListener ("click", function(){
+    function randomChoiceAI (){
+
+        var choice = Math.floor((Math.random() * 3) + 1);
+        console.log(choice);
 
     if ( choice === 1) {
-        console.log("rock");
-        choice = insertAiResult(rock);
+        if (document.querySelector(".ai_results_paragraph") === null) {
+            choice = insertAiResult(rock);
+            findTheWinner();
+        }
+        else if ((document.querySelector(".ai_results_paragraph").textContent === "AI: Paper")|| (document.querySelector(".ai_results_paragraph").textContent === "AI: Scissors" )) {
+            document.querySelector(".ai_results_paragraph").remove();
+            choice = insertAiResult(rock);
+            findTheWinner();
 
+        }
     }
     else if ( choice === 2){
-        console.log("paper");
-        hoice = insertAiResult(paper);
+        if (document.querySelector(".ai_results_paragraph") === null) {
+            choice = insertAiResult(paper);
+            findTheWinner();
+        }
+        else if ((document.querySelector(".ai_results_paragraph").textContent === "AI: Rock")|| (document.querySelector(".ai_results_paragraph").textContent === "AI: Scissors" )) {
+            document.querySelector(".ai_results_paragraph").remove();
+            choice = insertAiResult(paper);
+            findTheWinner();
+
+        }
+        //choice = insertAiResult(paper);
     }
     else {
-        console.log("scissors");
-        hoice = insertAiResult(scissors);
+        if (document.querySelector(".ai_results_paragraph") === null) {
+            choice = insertAiResult(scissors);
+            findTheWinner();
+        }
+        else if ((document.querySelector(".ai_results_paragraph").textContent === "AI: Rock")|| (document.querySelector(".ai_results_paragraph").textContent === "AI: Paper" )) {
+            document.querySelector(".ai_results_paragraph").remove();
+            choice = insertAiResult(scissors);
+            findTheWinner();
+
+        }
+       // choice = insertAiResult(scissors);
     }
-})
+}//)
 
 
 // insert results of player's choice
@@ -129,3 +125,18 @@ function insertAiResult(choice) {
     newParagraph.innerText = "AI: "+ choice.value;
     element.appendChild(newParagraph);
 }
+
+function findTheWinner(){
+    let playerChoice = document.querySelector(".results_paragraph").textContent;
+    let aiChoice = document.querySelector(".ai_results_paragraph").textContent;
+    if ((playerChoice === "Player: Paper" && aiChoice === "AI: Rock") || (playerChoice === "Player: Scissors" && aiChoice === "AI: Paper") ||(playerChoice === "Player: Rock" && aiChoice === "AI: Scissors")) {
+        console.log ("Player win");
+    }
+    else if ((playerChoice === "Player: Paper" && aiChoice === "AI: Paper") || (playerChoice === "Player: Scissors" && aiChoice === "AI: Scissors") ||(playerChoice === "Player: Rock" && aiChoice === "Scissors: Rock")) {
+        console.log ("Draw");
+    }
+    else {
+        console.log("AI win");
+    }
+}
+
