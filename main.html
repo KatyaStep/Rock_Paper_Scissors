@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <div class = "round">
+        <h2> Round </h2>
+    </div>
+     <div class = "score_panel">
+        <ul>
+             <li>WIN</li>
+             <li>TIES</li>
+             <li>WIN</li>
+        </ul>
+    </div>
+    <div class = "row">
+        <div class = "column">
+            <h1>Player 1 </h1>
+            <div class = "group_button">
+                <input type="button" class ="button rock" value="Rock"/>
+                <input type="button" class ="button paper" value="Paper"/>
+                <input type="button" class ="button scissors" value="Scissors"/>
+            </div>
+        </div>
+        <div class = "column">
+            <h2 id = "results_section">Results</h2>
+        </div>
+        <div class = "column">
+            <h1>AI </h1>
+            <input type="button" class ="button" id ="ai_choice_btn" value="Random choice"/>
+        </div>
+    </div>
+</body>
+<script type = "text/javascript" src="script.js"></script>
+</html>
