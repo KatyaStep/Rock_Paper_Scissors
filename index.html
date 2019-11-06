@@ -11,14 +11,21 @@
     <div class = "round">
         <h2> Round </h2>
     </div>
-     <div class = "score_panel">
-        <ul>
-             <li>WIN</li>
-             <li>TIES</li>
-             <li>WIN</li>
-        </ul>
+     <div class = "grid-container-board">
+        <div> 
+            Win
+            <p id="player_score">0</p>
+         </div>
+        <div>
+            Draw
+            <p id = "draw_score">0</p>
+         </div>
+        <div> 
+            Win
+            <p id = "ai_score">0</p>
+        </div>
     </div>
-    <div class = "row">
+ <!--   <div class = "row">
         <div class = "column">
             <h1>Player 1 </h1>
             <div class = "group_button">
@@ -27,14 +34,29 @@
                 <input type="button" class ="button scissors" value="Scissors"/>
             </div>
         </div>
-        <div class = "column">
+        <div class = "column results ">
             <h2 id = "results_section">Results</h2>
         </div>
         <div class = "column">
             <h1>AI </h1>
-            <input type="button" class ="button" id ="ai_choice_btn" value="Random choice"/>
         </div>
-    </div>
+    </div> -->
+    <div class = "grid-container">
+        <div style ="color: gray">
+            <p class = "paragraph-header">Player</p>
+            <div class = "group_button">
+                 <input type="button" class ="button rock" value="Rock"/>
+                 <input type="button" class ="button paper" value="Paper"/>
+                 <input type="button" class ="button scissors" value="Scissors"/>
+            </div>
+        </div>
+        <div id="results_section" style="color:gray">
+            <p id = "rounds" class = "paragraph-header">Rounds</p>
+        </div>
+        <div style="color:gray">
+            <p class = "paragraph-header">AI</p>
+        </div>
+    </div>   
 </body>
 <script type = "text/javascript" src="script.js"></script>
 </html>

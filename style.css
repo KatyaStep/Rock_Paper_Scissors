@@ -40,9 +40,56 @@ li {
 }
     
   .group_button {
-      margin-top: 280px;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
   }
 
   #ai_choice_btn {
       margin-top: 260px;
+  }
+.container {
+    background-color: beige;
+    position: relative;
+    margin: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: minmax(300px, auto);
+    grid-gap: 5px;
+    margin: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+  }
+  
+.grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    text-align: center;
+    padding: 10px;
+    font-size: 30px;
+  }
+
+.grid-container-board {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: auto;
+    grid-gap: 5px;
+    margin: 10px;
+    background-color: beige;
+    padding: 10px;
+  }
+
+  .grid-container-board > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+
+  .paragraph-header {
+      margin-top: 0;
   }
