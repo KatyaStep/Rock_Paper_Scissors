@@ -10,7 +10,7 @@ scissors.addEventListener("click", function(){
         insertResult(scissors);
         randomChoiceAI();
         insertWinnerResult();
-        addResultsToBoard()
+        addResultsToBoard();
     }
     else if ((document.querySelector(".results_paragraph").textContent === "Player: Rock")|| (document.querySelector(".results_paragraph").textContent === "Player: Paper" )) {
         //document.querySelector(".results_paragraph").remove();
@@ -20,14 +20,14 @@ scissors.addEventListener("click", function(){
         randomChoiceAI();
         //removeOldRecordWinner();
         insertWinnerResult();
-        addResultsToBoard()
+        addResultsToBoard();
     }
     else {
         console.log("Already choisen");
         randomChoiceAI();
         removeOldRecordWinner();
         insertWinnerResult();
-        addResultsToBoard()
+        addResultsToBoard();
     }
 })
 
@@ -37,6 +37,7 @@ rock.addEventListener("click", function(){
         insertResult(rock);
         randomChoiceAI();
         insertWinnerResult();
+        addResultsToBoard();
     }
     else if ((document.querySelector(".results_paragraph").textContent === "Player: Scissors")|| (document.querySelector(".results_paragraph").textContent === "Player: Paper" )) {
         //document.querySelector(".results_paragraph").remove();
@@ -46,12 +47,14 @@ rock.addEventListener("click", function(){
         randomChoiceAI();
         //removeOldRecordWinner();
         insertWinnerResult();
+        addResultsToBoard();
     }
     else {
         console.log("Already choisen");
         randomChoiceAI();
         removeOldRecordWinner();
         insertWinnerResult();
+        addResultsToBoard();
     }
 })
 
@@ -61,6 +64,7 @@ paper.addEventListener("click", function(){
         insertResult(paper);
         randomChoiceAI();
         insertWinnerResult();
+        addResultsToBoard();
     }
     else if ((document.querySelector(".results_paragraph").textContent === "Player: Rock")|| (document.querySelector(".results_paragraph").textContent === "Player: Scissors" )) {
         //document.querySelector(".results_paragraph").remove();
@@ -70,12 +74,14 @@ paper.addEventListener("click", function(){
         randomChoiceAI();
         //removeOldRecordWinner();
         insertWinnerResult();
+        addResultsToBoard();
     }
     else {
         console.log("Already choisen");
         randomChoiceAI();
         removeOldRecordWinner();
         insertWinnerResult();
+        addResultsToBoard();
     }
 })
 
@@ -200,12 +206,22 @@ function addResultsToBoard(){
     var drawScore = document.getElementById("draw_score").textContent;
     var aiScore = document.getElementById("ai_score").textContent;
     var result = document.querySelector(".winner_results_paragraph");
+    var counter = 0;
     if (result.textContent === 'Result: Player win') {
-        dociment.getElementBy
+        counter = parseInt(playerScore,10);
+        counter += 1;
+        document.getElementById("player_score").innerHTML = counter;
     }
-
-    //var element = document.getElementById("results_section");
-    //newParagraph.innerText = "Result: "+ winnerShow;
-    //element.appendChild(newParagraph);
+    else if (result.textContent === 'Result: AI win') {
+        counter = parseInt(aiScore,10);
+        counter += 1;
+        document.getElementById("ai_score").innerHTML = counter;
+    }
+    else {
+        counter = parseInt(drawScore,10);
+        counter += 1;
+        document.getElementById("draw_score").innerHTML = counter;
+    }
+    console.log ("Counter = ", counter);
 }
 
