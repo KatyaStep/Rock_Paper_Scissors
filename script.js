@@ -174,7 +174,7 @@ function insertWinnerResult() {
 function findTheWinner(){
     var playerChoice = document.querySelector(".results_paragraph").textContent;
     var aiChoice = document.querySelector(".ai_results_paragraph").textContent;
-    if ((playerChoice === "Player: Paper" && aiChoice === "AI: Rock") || (playerChoice === "Player: Scissors" && aiChoice === "AI: Paper") ||(playerChoice === "Player: Rock" && aiChoice === "AI: Scissors")) {
+    if ((playerChoice.val() === "Player: Paper" && aiChoice === "AI: Rock") || (playerChoice === "Player: Scissors" && aiChoice === "AI: Paper") ||(playerChoice === "Player: Rock" && aiChoice === "AI: Scissors")) {
         winner = "Player win";
         return winner;
     }
