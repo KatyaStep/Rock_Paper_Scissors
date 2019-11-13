@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
@@ -14,15 +15,15 @@
      <div class = "grid-container-board">
         <div> 
             Win
-            <p id="player_score">0</p>
+            <p id="player_score"></p>
          </div>
         <div>
             Draw
-            <p id = "draw_score">0</p>
+            <p id = "draw_score"></p>
          </div>
         <div> 
             Win
-            <p id = "ai_score">0</p>
+            <p id = "ai_score"></p>
         </div>
     </div>
  <!--   <div class = "row">
@@ -52,11 +53,15 @@
         </div>
         <div id="results_section" style="color:gray">
             <p id = "rounds" class = "paragraph-header">Rounds</p>
+            <p id = "player_choice"></p>
+            <p id = "ai_choice"></p>
+            <p id = "round_winner"></p>
         </div>
         <div style="color:gray">
             <p class = "paragraph-header">AI</p>
         </div>
     </div>   
 </body>
-<script type = "text/javascript" src="script.js"></script>
+<!--script type = "text/javascript" src="script.js"></script-->
+<script type = "text/javascript" src = "scriptJquery.js"></script>
 </html>

@@ -3,7 +3,6 @@ var paper = document.querySelector(".paper");
 var scissors = document.querySelector(".scissors");
 var ai = document.getElementById("ai_choice_btn");
 var winner;
-var playerCounter = 0;
 
 scissors.addEventListener("click", function(){
     if (document.querySelector(".results_paragraph") === null) {
