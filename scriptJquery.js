@@ -1,22 +1,21 @@
-var scissors = $(".scissors").val();
-var rock = $(".rock").val();
-var paper = $(".paper").val();
+var scissors = "scissors";
+var rock = "rock"
+var paper = "paper";
 var playerChoice = $("#player_choice");
 var aiChoice = $("#ai_choice");
+var score_board = $(".score-board p");
 var winnerOfRound;
 var counterDraw = 0;
 var counterWinPlayer = 0;
 var counterWinAI = 0;
 
 $(document).ready(function(){
-   setDefaultValues($("#player_score"));
-   setDefaultValues($("#draw_score"));
-   setDefaultValues($("#ai_score"));
+   setDefaultValues(score_board);
 })
 
 
 $(".scissors").click(function(){
-    insertResult(scissors);
+    insertChoice(playerChoice, "Player: ",scissors)
     aiRandomChoice ();
     findTheWinner();
     addResultsToBoard();
@@ -24,7 +23,7 @@ $(".scissors").click(function(){
 })
 
 $(".rock").click(function(){
-    insertResult(rock);
+   insertChoice(playerChoice, "Player: ",rock)
     aiRandomChoice ();
     findTheWinner();
     addResultsToBoard();
@@ -32,63 +31,58 @@ $(".rock").click(function(){
 })
 
 $(".paper").click(function(){
-    insertResult(paper);
+    insertChoice(playerChoice, "Player: ",paper)
     aiRandomChoice ();
     findTheWinner();
     addResultsToBoard();
     
 })
 
+$("#reset-btn").click(function(){
+    let response = confirm ("Do you want to reset the game?")
+    if (response === true){
+        reset();
+    }
+    else {
+        console.log("pressed cancel");
+    }
+})
+
 // function to set default values for the results board 
 function setDefaultValues (column){
-    var defaultNumber = 0;
+    let defaultNumber = 0;
     column.append(defaultNumber);
 }
 
-// insert player's choice to the round result section 
+// insert player's  and ai's choices to the round result section 
 
-function insertResult(choice){ 
-    //$("#player_choice").append("Player: " + choice);
-    if (playerChoice.text() === "") {
-        playerChoice.append("Player: " + choice);
+function insertChoice (column, text, choice){
+    if (column.text() === ""){
+        column.append(text + choice);
     }
     else {
-        if (playerChoice.text() !== "Player: " + choice){
-            playerChoice.empty();
-            playerChoice.append("Player: " + choice);
-        }
-        else {
-            console.log("Player already choose")
+        if (column.text() !== column + choice){
+            column.empty();
+            column.append(text + choice);
         }
     }
 }
-
-function insertAiChoice (choice){
-    if (aiChoice.text() === "") {
-        aiChoice.append("AI: " + choice);
-    }
-    else {
-        if (aiChoice.text() !== "AI: " + choice){
-            aiChoice.empty();
-            aiChoice.append("AI: " + choice);
-        }
-        else {
-            console.log("AI already choose")
-        }
-    }
-}
+// define ai random choice 
 
 function aiRandomChoice (){
     var aiRandomChoice = Math.floor((Math.random() * 3) + 1);
     console.log(aiRandomChoice);
     if (aiRandomChoice === 1) {
-        insertAiChoice(rock);
+        //insertAiChoice(rock);
+        insertChoice(aiChoice, "AI: ", rock)
     }
     else if (aiRandomChoice === 2 ){
-        insertAiChoice(scissors);
+        //insertAiChoice(scissors);
+        insertChoice(aiChoice, "AI: ", scissors);
     }
     else {
-        insertAiChoice(paper);
+        //insertAiChoice(paper);
+        insertChoice(aiChoice, "AI: ", paper);
     }
     
 }
@@ -97,7 +91,7 @@ function findTheWinner(){
         var player  = playerChoice.text();
         var ai = aiChoice.text();
         var result = $("#round_winner").text();
-    if ((player === "Player: Paper" && ai === "AI: Rock") || (player === "Player: Scissors" && ai === "AI: Paper") ||(player === "Player: Rock" && ai === "AI: Scissors")) {
+    if ((player === "Player: paper" && ai === "AI: rock") || (player === "Player: scissors" && ai === "AI: paper") ||(player === "Player: rock" && ai === "AI: scissors")) {
         winnerOfRound = "Result: Player win";
         if (result === ""){
             $("#round_winner").append(winnerOfRound);
@@ -107,7 +101,7 @@ function findTheWinner(){
             $("#round_winner").append(winnerOfRound);
         }
     }
-    else if ((player === "Player: Paper" && ai === "AI: Paper") || (player === "Player: Scissors" && ai === "AI: Scissors") ||(player === "Player: Rock" && ai === "AI: Rock")) {
+    else if ((player === "Player: paper" && ai === "AI: paper") || (player === "Player: scissors" && ai === "AI: scissors") ||(player === "Player: rock" && ai === "AI: rock")) {
         winnerOfRound = "Result: Draw";
         if (result === ""){
             $("#round_winner").append(winnerOfRound);
@@ -146,4 +140,14 @@ function addResultsToBoard(){
         $("#draw_score").empty();
         $("#draw_score").append(counterDraw);
     }
+}
+
+function reset() {
+    $("#player_score").empty();
+    $("#draw_score").empty();
+    $("#ai_score").empty();
+    $("#player_choice").empty();
+    $("#ai_choice").empty();
+    $("#round_winner").empty();
+    setDefaultValues(score_board);
 }

@@ -16,18 +16,18 @@
                 <h2>Round</h2>
             </div>
         </div>
-        <div class="row">
+        <div class="row score-board">
             <div class="col" style="color:gray">
                 <h3>PL WIN</h3>
-                <p id="player_score"><p>
+                <p id="player_score"></p>
             </div>
              <div class="col" style="color:gray">
                 <h3>DRAW</h3>
-                <p id="draw_score"><p></p>
+                <p id="draw_score"></p>
             </div>
              <div class="col" style="color:gray">
                 <h3>AI WIN</h3>
-                <p id="ai_score"><p></p>
+                <p id="ai_score"></p>
             </div>
         </div>
         <div class="row game-field">
@@ -44,6 +44,9 @@
                 <p id = "round_winner"></p>
             </div>
             <div class="col header" style="border:0.2px solid grey; text-align:center">AI</div>
+        </div>
+        <div>
+            <input type = "reset" class = "btn btn-lg" id="reset-btn" value="Restart">
         </div>
     </div>
 </body>

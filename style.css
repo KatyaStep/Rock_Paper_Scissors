@@ -36,3 +36,9 @@
     font-size:24px; 
     color:black
   }
+  #reset-btn {
+      float: right;
+      margin-top: 5px;
+      background-color: rgb(194, 52, 64);
+      color: white;
+  }
