@@ -1,0 +1,95 @@
+
+.round {
+    background-color: blanchedalmond;
+    text-align: center;
+    margin: 10px;
+}
+.score_panel {
+    background-color: olive;
+    margin: 10px;
+    text-align: center;
+}
+li {
+    list-style-type: none;
+    display: inline;
+    padding-right: 25px;
+}
+
+.column {
+    float: left;
+    width: 35%;
+    background-color: blanchedalmond;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+    width: 320px;
+    height: 400px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.button {
+    background-color: rgb(68, 102, 177); 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+    
+  .group_button {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+  }
+
+  #ai_choice_btn {
+      margin-top: 260px;
+  }
+.container1 {
+    background-color: beige;
+    position: relative;
+    margin: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: minmax(300px, auto);
+    grid-gap: 5px;
+    margin: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+  }
+  
+.grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    text-align: center;
+    padding: 10px;
+    font-size: 30px;
+  }
+
+.grid-container-board {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: auto;
+    grid-gap: 5px;
+    margin: 10px;
+    background-color: beige;
+    padding: 10px;
+  }
+
+  .grid-container-board > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+
+  .paragraph-header {
+      margin-top: 0;
+  }

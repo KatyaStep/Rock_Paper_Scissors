@@ -135,7 +135,6 @@ function addResultsToBoard(){
         counterWinPlayer += 1;
         $("#player_score").empty();
         $("#player_score").append(counterWinPlayer);
-        //console.log("Counter =", counter);
     }
     else if (currentResult === 'Result: AI win') {
         counterWinAI += 1;
