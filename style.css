@@ -42,3 +42,25 @@
       background-color: rgb(194, 52, 64);
       color: white;
   }
+
+  img {
+      width:170px;
+      height: 150px; 
+      margin-top: 5px;
+      /*animation: MoveDownUp  0.5s infinite; */
+    
+  }
+
+  .animation {
+    animation: MoveDownUp  0.5s infinite; 
+    animation-play-state: paused;
+  }
+
+  @keyframes MoveDownUp {
+    25% {margin-top: 5px; -webkit-animation-timing-function: ease-in;}
+    50% {margin-top: 20px; -webkit-animation-timing-function: ease-out;}
+    75% {margin-top: 20px; -webkit-animation-timing-function: ease-out;}
+    100% {margin-top: 5px; -webkit-animation-timing-function: ease-in;}
+
+  }
+

@@ -8,6 +8,8 @@ var winnerOfRound;
 var counterDraw = 0;
 var counterWinPlayer = 0;
 var counterWinAI = 0;
+var round = 0;
+//var scissorsImage = $(".image").attr('src', "/img/scissors.jpg");
 
 $(document).ready(function(){
    setDefaultValues(score_board);
@@ -15,26 +17,52 @@ $(document).ready(function(){
 
 
 $(".scissors").click(function(){
-    insertChoice(playerChoice, "Player: ",scissors)
-    aiRandomChoice ();
-    findTheWinner();
-    addResultsToBoard();
+    changingRound();
+    animation("running");
+    setTimeout(function(){
+        insertChoice(playerChoice, "Player: ",scissors, $(".imagePl"),"/img/scissors.jpg");
+        aiRandomChoice();
+        findTheWinner();
+        addResultsToBoard();
+    }, 1500)
+    //timeOut(insertChoice(playerChoice, "Player: ",scissors, ($(".imagePl").attr('src', "/img/scissors.jpg"))))
+    //setTimeout(function() {alert("Hello")}, 5000);
+    //insertChoice(playerChoice, "Player: ",scissors, $(".imagePl"),"/img/scissors.jpg");
+    //aiRandomChoice ();
+    //findTheWinner();
+    //addResultsToBoard();
     
 })
 
 $(".rock").click(function(){
-   insertChoice(playerChoice, "Player: ",rock)
-    aiRandomChoice ();
-    findTheWinner();
-    addResultsToBoard();
+    changingRound ();
+    animation("running");
+    setTimeout(function(){
+        insertChoice(playerChoice, "Player: ",rock, $(".imagePl"), "/img/rock.jpg");
+        aiRandomChoice ();
+        findTheWinner();
+        addResultsToBoard();
+    },1500)
+    //insertChoice(playerChoice, "Player: ",rock, $(".imagePl"), "/img/rock.jpg");
+    //aiRandomChoice ();
+    //findTheWinner();
+    //addResultsToBoard();
     
 })
 
 $(".paper").click(function(){
-    insertChoice(playerChoice, "Player: ",paper)
+    changingRound();
+    animation("running");
+    setTimeout(function(){
+        insertChoice(playerChoice, "Player: ",paper, ($(".imagePl").attr('src', "/img/paper.jpg")));
+        aiRandomChoice ();
+        findTheWinner();
+        addResultsToBoard();
+    }, 1500)
+    /*insertChoice(playerChoice, "Player: ",paper, ($(".imagePl").attr('src', "/img/paper.jpg")));
     aiRandomChoice ();
     findTheWinner();
-    addResultsToBoard();
+    addResultsToBoard();*/
     
 })
 
@@ -52,11 +80,16 @@ $("#reset-btn").click(function(){
 function setDefaultValues (column){
     let defaultNumber = 0;
     column.append(defaultNumber);
+    $("#round-number").append(defaultNumber);
 }
 
 // insert player's  and ai's choices to the round result section 
 
-function insertChoice (column, text, choice){
+function insertChoice (column, text, choice, image, src){
+    //setTimeout(function() {
+     animation("paused");
+     image.attr('src',src);
+
     if (column.text() === ""){
         column.append(text + choice);
     }
@@ -65,7 +98,18 @@ function insertChoice (column, text, choice){
             column.empty();
             column.append(text + choice);
         }
+    } 
+    //}, 1500);
+    /*$(".image").append(image);
+    if (column.text() === ""){
+        column.append(text + choice);
     }
+    else {
+        if (column.text() !== column + choice){
+            column.empty();
+            column.append(text + choice);
+        }
+    }*/
 }
 // define ai random choice 
 
@@ -74,15 +118,15 @@ function aiRandomChoice (){
     console.log(aiRandomChoice);
     if (aiRandomChoice === 1) {
         //insertAiChoice(rock);
-        insertChoice(aiChoice, "AI: ", rock)
+        insertChoice(aiChoice, "AI: ", rock, ($(".imageAI").attr('src', "/img/rock.jpg")))
     }
     else if (aiRandomChoice === 2 ){
         //insertAiChoice(scissors);
-        insertChoice(aiChoice, "AI: ", scissors);
+        insertChoice(aiChoice, "AI: ", scissors, ($(".imageAI").attr('src', "/img/scissors.jpg")));
     }
     else {
         //insertAiChoice(paper);
-        insertChoice(aiChoice, "AI: ", paper);
+        insertChoice(aiChoice, "AI: ", paper, ($(".imageAI").attr('src', "/img/paper.jpg")));
     }
     
 }
@@ -149,5 +193,23 @@ function reset() {
     $("#player_choice").empty();
     $("#ai_choice").empty();
     $("#round_winner").empty();
+    $("#round-number").empty();
     setDefaultValues(score_board);
+    counterDraw = 0;
+    counterWinPlayer = 0;
+    counterWinAI = 0;
+    round = 0;
+}
+
+function changingRound (){
+    $("#round-number").empty();
+    round += 1;
+    $("#round-number").append(round);
+
+}
+
+function animation (state){
+    //$(".imagePl").addClass("animation"); 
+    $(".animation").css("animation-play-state", state);
+
 }
