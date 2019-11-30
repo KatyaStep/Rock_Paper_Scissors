@@ -17,6 +17,7 @@ $(document).ready(function(){
 
 
 $(".scissors").click(function(){
+    setDefaultImage();
     changingRound();
     animation("running");
     setTimeout(function(){
@@ -35,6 +36,7 @@ $(".scissors").click(function(){
 })
 
 $(".rock").click(function(){
+    setDefaultImage();
     changingRound ();
     animation("running");
     setTimeout(function(){
@@ -51,6 +53,7 @@ $(".rock").click(function(){
 })
 
 $(".paper").click(function(){
+    setDefaultImage();
     changingRound();
     animation("running");
     setTimeout(function(){
@@ -194,6 +197,7 @@ function reset() {
     $("#ai_choice").empty();
     $("#round_winner").empty();
     $("#round-number").empty();
+    $("img").css("visibility", "hidden");
     setDefaultValues(score_board);
     counterDraw = 0;
     counterWinPlayer = 0;
@@ -212,4 +216,10 @@ function animation (state){
     //$(".imagePl").addClass("animation"); 
     $(".animation").css("animation-play-state", state);
 
+}
+
+function setDefaultImage (){
+    $(".imagePl").attr('src', '/img/fistLeft.jpg');
+    $(".imageAI").attr('src', '/img/fistRight.jpg');
+    $("img").css("visibility", "visible");
 }

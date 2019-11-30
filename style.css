@@ -47,6 +47,7 @@
       width:170px;
       height: 150px; 
       margin-top: 5px;
+      visibility: hidden;
       /*animation: MoveDownUp  0.5s infinite; */
     
   }
